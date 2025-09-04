@@ -6,10 +6,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public interface BaseServicePort<T, Long> {
-    T save(T entity);
-    Optional<T> findById(Long id);
-    List<T> findAll();
+public interface BaseServicePort<ResponseDto, RequestDto, Long> {
+    Long save(RequestDto dto);
+    ResponseDto findById(Long id);
+    List<ResponseDto> findAll();
     void deleteById(Long id);
-    Long update(Long id, T entity);
+    Long update(Long id, RequestDto dto);
 }

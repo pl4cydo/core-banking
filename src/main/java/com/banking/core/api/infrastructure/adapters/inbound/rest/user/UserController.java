@@ -3,12 +3,13 @@ package com.banking.core.api.infrastructure.adapters.inbound.rest.user;
 import com.banking.core.api.application.ports.outbound.User.UserServicePort;
 import com.banking.core.api.application.services.User.UserService;
 import com.banking.core.api.domain.entities.User;
+import com.banking.core.api.infrastructure.adapters.inbound.dtos.user.UserRequestDto;
+import com.banking.core.api.infrastructure.adapters.inbound.dtos.user.UserResponseDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/users")
@@ -21,17 +22,17 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity<List<User>> findAll() {
+    public ResponseEntity<List<UserResponseDto>> findAll() {
         return new ResponseEntity<>(userService.findAll(), HttpStatus.OK);
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Optional<User>> findById(@PathVariable Long id) {
+    public ResponseEntity<UserResponseDto> findById(@PathVariable Long id) {
         return new ResponseEntity<>(userService.findById(id), HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<User> save(@RequestBody User entity) {
+    public ResponseEntity<Long> save(@RequestBody UserRequestDto entity) {
         return new ResponseEntity<>(userService.save(entity), HttpStatus.CREATED);
     }
 
@@ -42,7 +43,7 @@ public class UserController {
     }
 
     @PutMapping(value="/{id}")
-    public Long updateUser(@PathVariable Long id, @RequestBody User entity) {
-        return userService.update(id, entity);
+    public ResponseEntity<Long> update(@PathVariable Long id, @RequestBody UserRequestDto entity) {
+        return new ResponseEntity<>(userService.update(id, entity), HttpStatus.OK);
     }
 }
