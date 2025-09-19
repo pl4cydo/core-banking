@@ -1,8 +1,7 @@
 package com.banking.core.api.infrastructure.adapters.inbound.rest.user;
 
-import com.banking.core.api.application.ports.outbound.User.UserServicePort;
+import com.banking.core.api.application.ports.outbound.repositories.user.UserServicePort;
 import com.banking.core.api.application.services.User.UserService;
-import com.banking.core.api.domain.entities.User;
 import com.banking.core.api.infrastructure.adapters.inbound.dtos.user.UserRequestDto;
 import com.banking.core.api.infrastructure.adapters.inbound.dtos.user.UserResponseDto;
 import org.springframework.http.HttpStatus;

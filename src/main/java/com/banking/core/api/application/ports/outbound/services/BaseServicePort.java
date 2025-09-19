@@ -1,9 +1,8 @@
-package com.banking.core.api.application.ports.outbound;
+package com.banking.core.api.application.ports.outbound.services;
 
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public interface BaseServicePort<ResponseDto, RequestDto, Long> {

@@ -1,6 +1,6 @@
 package com.banking.core.api.infrastructure.adapters.outbound.persistence;
 
-import com.banking.core.api.application.ports.outbound.User.UserRepositoryPort;
+import com.banking.core.api.application.ports.outbound.services.user.UserRepositoryPort;
 import com.banking.core.api.domain.entities.User;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;

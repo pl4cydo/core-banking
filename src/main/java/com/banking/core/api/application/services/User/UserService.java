@@ -2,8 +2,8 @@ package com.banking.core.api.application.services.User;
 
 import com.banking.core.api.application.ports.mappers.user.UserRequestMapper;
 import com.banking.core.api.application.ports.mappers.user.UserResponseMapper;
-import com.banking.core.api.application.ports.outbound.User.UserRepositoryPort;
-import com.banking.core.api.application.ports.outbound.User.UserServicePort;
+import com.banking.core.api.application.ports.outbound.services.user.UserRepositoryPort;
+import com.banking.core.api.application.ports.outbound.repositories.user.UserServicePort;
 import com.banking.core.api.domain.entities.User;
 import com.banking.core.api.infrastructure.adapters.inbound.dtos.user.UserRequestDto;
 import com.banking.core.api.infrastructure.adapters.inbound.dtos.user.UserResponseDto;
@@ -52,7 +52,7 @@ public class UserService implements UserServicePort {
         User user =  userRepository.findById(id)
                 .orElseThrow(); // TODO: Impementar exception;
 
-        user.setNome(userRequestDto.getNome());
+        user.setName(userRequestDto.getName());
         user.setEmail(userRequestDto.getEmail());
 
         return userRepository.save(user).getId();

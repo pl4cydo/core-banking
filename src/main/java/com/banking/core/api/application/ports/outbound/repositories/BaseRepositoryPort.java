@@ -1,4 +1,4 @@
-package com.banking.core.api.application.ports.outbound;
+package com.banking.core.api.application.ports.outbound.repositories;
 
 import org.springframework.stereotype.Repository;
 
