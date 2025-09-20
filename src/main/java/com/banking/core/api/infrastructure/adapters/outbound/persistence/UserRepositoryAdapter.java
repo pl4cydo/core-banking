@@ -1,6 +1,6 @@
 package com.banking.core.api.infrastructure.adapters.outbound.persistence;
 
-import com.banking.core.api.application.ports.outbound.services.user.UserRepositoryPort;
+import com.banking.core.api.application.ports.outbound.repositories.user.UserRepositoryPort;
 import com.banking.core.api.domain.entities.User;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -44,5 +44,13 @@ public class UserRepositoryAdapter implements UserRepositoryPort {
         if (user != null) {
             entityManager.remove(user);
         }
+    }
+
+    @Override
+    public Optional<User> findByEmail(String email) {
+        return entityManager.createQuery("SELECT u FROM User u WHERE u.email = :email", User.class)
+                .setParameter("email", email)
+                .getResultStream()
+                .findFirst();
     }
 }
