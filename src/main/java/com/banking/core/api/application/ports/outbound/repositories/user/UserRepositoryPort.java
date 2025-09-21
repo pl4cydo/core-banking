@@ -1,7 +1,7 @@
 package com.banking.core.api.application.ports.outbound.repositories.user;
 
 import com.banking.core.api.application.ports.outbound.repositories.BaseRepositoryPort;
-import com.banking.core.api.domain.entities.User;
+import com.banking.core.api.domain.entities.user.User;
 
 import java.util.Optional;
 

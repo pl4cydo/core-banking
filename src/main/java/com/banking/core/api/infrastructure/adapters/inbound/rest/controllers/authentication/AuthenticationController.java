@@ -2,10 +2,11 @@ package com.banking.core.api.infrastructure.adapters.inbound.rest.controllers.au
 
 import com.banking.core.api.application.ports.outbound.services.authentication.AuthenticationServicePort;
 import com.banking.core.api.application.services.jwt.JwtService;
-import com.banking.core.api.domain.entities.LoginResponse;
-import com.banking.core.api.domain.entities.User;
+import com.banking.core.api.domain.entities.user.LoginResponse;
+import com.banking.core.api.domain.entities.user.User;
 import com.banking.core.api.infrastructure.adapters.inbound.dtos.user.LoginUserDto;
 import com.banking.core.api.infrastructure.adapters.inbound.dtos.user.RegisterUserDto;
+import org.apache.coyote.BadRequestException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,7 +25,7 @@ public class AuthenticationController {
     }
 
     @PostMapping("/singup")
-    public ResponseEntity<User> register(@RequestBody RegisterUserDto registerUserDto) {
+    public ResponseEntity<User> register(@RequestBody RegisterUserDto registerUserDto) throws BadRequestException {
         User registeredUser = authenticationService.signup(registerUserDto);
         return ResponseEntity.ok(registeredUser);
     }

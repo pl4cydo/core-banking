@@ -1,4 +1,4 @@
-package com.banking.core.api.domain.entities;
+package com.banking.core.api.domain.entities.user;
 
 
 import lombok.EqualsAndHashCode;

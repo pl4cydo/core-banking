@@ -6,6 +6,7 @@ import com.banking.core.api.infrastructure.adapters.inbound.dtos.user.RegisterUs
 import com.banking.core.api.infrastructure.adapters.inbound.dtos.user.ResponseUserDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,6 +22,7 @@ public class UserController {
     }
 
     @GetMapping
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER', 'SUPER_ADMIN')")
     public ResponseEntity<List<ResponseUserDto>> findAll() {
         return new ResponseEntity<>(userService.findAll(), HttpStatus.OK);
     }

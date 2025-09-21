@@ -3,7 +3,7 @@ package com.banking.core.api.application.services.user;
 import com.banking.core.api.infrastructure.adapters.inbound.mapper.user.ResponseUserMapper;
 import com.banking.core.api.application.ports.outbound.repositories.user.UserRepositoryPort;
 import com.banking.core.api.application.ports.outbound.services.BaseServicePort;
-import com.banking.core.api.domain.entities.User;
+import com.banking.core.api.domain.entities.user.User;
 import com.banking.core.api.infrastructure.adapters.inbound.dtos.user.RegisterUserDto;
 import com.banking.core.api.infrastructure.adapters.inbound.dtos.user.ResponseUserDto;
 import org.springframework.stereotype.Service;
