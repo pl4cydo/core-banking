@@ -1,4 +1,4 @@
-package com.banking.core.api.infrastructure.adapters.inbound.rest.authentication;
+package com.banking.core.api.infrastructure.adapters.inbound.rest.controllers.authentication;
 
 import com.banking.core.api.application.ports.outbound.services.authentication.AuthenticationServicePort;
 import com.banking.core.api.application.services.jwt.JwtService;

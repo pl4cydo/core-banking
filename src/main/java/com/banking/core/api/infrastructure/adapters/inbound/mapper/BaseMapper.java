@@ -1,4 +1,4 @@
-package com.banking.core.api.application.ports.mapper;
+package com.banking.core.api.infrastructure.adapters.inbound.mapper;
 
 import org.mapstruct.Mapper;
 
